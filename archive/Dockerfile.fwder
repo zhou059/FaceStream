@@ -1,0 +1,12 @@
+# Dockerfile for mosquitto broker on Jetson
+
+FROM alpine
+
+LABEL Maintainer="Jonathan Zhou <jonathan.zhou@berkeley.edu>" \
+      Description="Mosquitto broker on Jetson for capturing face images"
+
+RUN echo "nameserver 8.8.8.8" > /etc/resolv.conf
+RUN apk update && apk add mosquitto
+
+EXPOSE 1883
+CMD /usr/sbin/mosquitto
