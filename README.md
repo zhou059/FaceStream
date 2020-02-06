@@ -16,7 +16,7 @@ python3 /FaceStream/saver.py
 
 ### Setup instructions on Jetson after: 
 
-1. docker build --network=host -t cv2container -f Dockerfile.capture .
+1. docker build -t cv2container -f Dockerfile.capture .
 2. xhost + local:root
 3. docker run --user=root --env="DISPLAY" -e DISPLAY=$DISPLAY \
 --volume="/etc/group:/etc/group:ro" --volume="/etc/passwd:/etc/passwd:ro" --volume="/etc/shadow:/etc/shadow:ro" \
