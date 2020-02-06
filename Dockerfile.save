@@ -28,6 +28,3 @@ RUN apt-get clean
 
 RUN pip3 install paho-mqtt
 RUN pip3 install opencv-python
-
-COPY saver.py
-CMD python3 saver.py
