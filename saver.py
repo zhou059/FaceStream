@@ -11,7 +11,7 @@ import paho.mqtt.client as paho
 
 def on_connect(client, userdata, flags, rc):
     print("Connected to broker with result code "+str(rc))
-    client.subscribe("face_app/test")
+    client.subscribe("faces")
 
 img_number = 0
 
@@ -20,7 +20,7 @@ def on_message(client, userdata, msg):
 
     f = np.frombuffer(msg.payload, dtype='uint8')
     img = cv.imdecode(f, flags=1)
-    img_name = output_dir + "/face_" + str(img_number) + ".png"
+    img_name = "/s3fs_faces/face_" + str(img_number) + ".png"
     cv.imwrite(img_name, img)
 
     print(img_name)
